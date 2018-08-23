@@ -1,0 +1,35 @@
+
+#login-box.login-box.visible.widget-box.no-border
+  .widget-body
+    .widget-main
+      h4.header.blue.lighter.bigger
+        i.ace-icon.fa.fa-coffee.green
+        | Vui lòng điền thông tin
+      .space-6
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+      .space-6
+      = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'formLogin'}) do |f|
+
+        fieldset
+          label.block.clearfix
+            span.block.input-icon.input-icon-right
+              = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"
+              i.ace-icon.fa.fa-user
+          label.block.clearfix
+            span.block.input-icon.input-icon-right
+              = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Mật khẩu"
+              i.ace-icon.fa.fa-lock
+          .space
+          .clearfix
+            button.width-35.pull-right.btn.btn-sm.btn-primary name="submit_login" type="submit"
+              i.ace-icon.fa.fa-key
+              span.bigger-110 Đăng nhập
+          .space-4
+
+    .toolbar.clearfix
+      div
+      div
+        a.user-signup-link href="/users/sign_up"
+          | Tôi muốn đăng ký
+          i.ace-icon.fa.fa-arrow-right

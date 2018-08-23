@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user.references: MyString
+  customer.references: MyString
+  price: 1
+
+two:
+  user.references: MyString
+  customer.references: MyString
+  price: 1

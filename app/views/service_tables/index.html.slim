@@ -1,0 +1,17 @@
+h1 Bảng giá dịch vụ
+.table-responsive
+  table.table
+    thead
+      tr
+        th Giá
+        th Ngày sử dụng
+        th colspan="3"
+    tbody
+      - @service_tables.each do |service_table|
+        tr
+          td= service_table.price
+          td= service_table.day_of_use
+          td= link_to 'Edit', edit_service_table_path(service_table)
+          td= link_to 'Destroy', service_table, method: :delete, data: {confirm: 'Are you sure?'}
+br
+= link_to 'Tạo gói mới', new_service_table_path, class: "btn btn-success"

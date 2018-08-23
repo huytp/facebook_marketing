@@ -1,0 +1,31 @@
+#menu2.tab-pane.fade
+    h3 Thông tin khách hàng đã hết ngày sử dụng
+    .table-responsive
+      table.table
+        thead
+          tr
+            th Mã
+            th Họ tên
+            th Email
+            th SĐT
+            th Ngày kích hoạt
+            th Số ngày đã hết hạn đã qua
+            th Mua thêm
+        tbody
+          - customers_invalid.find_each(batch_size: BATCH_SIZE) do |customer_invalid|
+            tr
+              td
+                = customer_invalid.mac
+              td
+                = customer_invalid.full_name
+              td
+                = customer_invalid.email
+              td
+                = customer_invalid.phone
+              td
+                = customer_invalid.created_at
+              td
+                = change_second_to_days(Time.now - customer_invalid.expired_time)
+              td
+                = link_to 'Mua thêm', day_using_extends_path(customer_invalid), class: "btn btn-success btn-sm active"
+          doctype XML

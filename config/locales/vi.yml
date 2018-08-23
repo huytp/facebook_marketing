@@ -1,0 +1,2 @@
+vi:
+  name: "Xin chào %{first_name} %{last_name}"

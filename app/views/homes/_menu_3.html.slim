@@ -1,0 +1,39 @@
+#menu3.tab-pane.fade
+    .row
+      .col-lg-6
+        form method="GET"
+          .input-group
+            input.form-control name="key" placeholder=("Search for...") type="text" /
+            span.input-group-btn
+              button.btn.btn-default type="submit"  Go!
+
+    .table-responsive
+      table.table
+        thead
+          tr
+            th Mã
+            th Họ tên
+            th Email
+            th SĐT
+            th Ngày kích hoạt
+            th Ngày kết hạn
+            th Gia hạn/ trừ ngày
+        tbody
+          - if params[:key].present?
+            - customers.find_each(batch_size: BATCH_SIZE) do |customer|
+              tr.success
+                td
+                  = customer.mac
+                td
+                  = customer.full_name
+                td
+                  = customer.email
+                td
+                  = customer.phone
+                td
+                  = customer.created_at
+                td
+                  = customer.expired_time
+
+                td
+                  a.btn.btn-success.btn-sm.active href=("") role="button"  Gia hạn/ trừ ngày

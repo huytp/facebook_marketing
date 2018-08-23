@@ -1,0 +1,36 @@
+.fm-extend
+  .row
+    .col-sm-12
+      h2 Thông tin khách hàng
+  .row
+    .col-sm-12
+      .table-responsive
+        table.table
+          thead
+            tr
+              th Mã
+              th Họ tên
+              th Email
+              th SĐT
+              th Ngày het han
+          tbody
+            tr.active
+              td
+                = @customer.mac
+              td
+                = @customer.full_name
+              td
+                = @customer.email
+              td
+                = @customer.phone
+              td
+                = @customer.expired_time
+  = form_tag day_using_extends_path(@customer), class: "form-inline"
+    .form-group
+      label.fm-label-padding  Chọn gói dịch vụ:
+      = select_tag "day_of_use", options_for_select(get_service_tables @service_tables), class: "selectpicker"
+
+
+    button.btn.btn-default.fm-btn-margin type="submit"  Submit
+  = link_to 'Back', session[:my_previous_url], class: "btn btn-success"
+

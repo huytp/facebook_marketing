@@ -1,0 +1,23 @@
+nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      = link_to "Ultra Facebook", root_path, class: "navbar-brand"
+    div
+      ul.nav.navbar-nav
+        li
+          = link_to "Home", homes_path
+        li
+          = link_to 'Thông báo', inform_homes_path
+        li
+          = link_to 'Thông tin nhân viên', user_infos_path
+        li
+          = link_to 'Update hệ thống', update_version_homes_path
+        li
+          = link_to 'Bảng giá dịch vụ', service_tables_path
+      ul.nav.navbar-nav style=("float: right;")
+        li
+          = link_to 'Thoát', destroy_user_session_path, method: "DELETE"
+      ul.nav.navbar-nav style=("float: right;")
+        li
+          a
+            = I18n.t("name", first_name: current_user.first_name, last_name:  current_user.last_name)

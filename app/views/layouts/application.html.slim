@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Facebookmarketing
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  - if params[:controller]=='devise/sessions' || params[:controller] =='devise/registrations'
+    body.login-layout
+      = render 'layouts/login_signup'
+  - else
+    body
+      = render 'layouts/header'
+      .container
+        = render 'layouts/alert'
+        = yield
+
+
+
+
+

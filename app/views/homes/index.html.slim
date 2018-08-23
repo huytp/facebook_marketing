@@ -1,0 +1,16 @@
+h2 Thông tin khách hàng
+ul.nav.nav-tabs role="tablist"
+  li.active
+    a href="#menu1" data-toggle="tab" role="tab"  Còn ngày sử dụng
+  li
+    a href="#menu2" data-toggle="tab" role="tab"  Hết ngày sử dụng
+  li
+    a href="#menu3" data-toggle="tab" role="tab"  Tìm kiếm khách hàng
+  li
+    a href="#menu4" data-toggle="tab" role="tab"  Danh sách khách hàng bị cấm
+.tab-content
+  = render 'menu_1', customers_valid: @customers_valid
+  = render 'menu_2', customers_invalid: @customers_invalid
+  = render 'menu_3', customers: @customers
+  = render 'menu_4', customers_ban: @customers_ban
+

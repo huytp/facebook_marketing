@@ -1,0 +1,19 @@
+= form_for(@service_table) do |f|
+  - if @service_table.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@service_table.errors.count, "error")
+        | prohibited this service_table from being saved:
+      ul
+        - @service_table.errors.full_messages.each do |message|
+          li= message
+  .field
+    = f.label :price
+    br
+    = f.number_field :price
+  .field
+    = f.label :day_of_use
+    br
+    = f.number_field :day_of_use
+  .actions
+    = f.submit "#{params[:action] == 'new' ? 'Tạo mới' : 'Cập nhật'}", class: "btn btn-success"

@@ -1,0 +1,22 @@
+#menu4.tab-pane.fade
+    h3 Thông tin khách hàng còn ngày sử dụng
+    .table-responsive
+      table.table
+        thead
+          tr
+            th Mã
+            th Họ và tên
+            th Số điện thoại
+            th Bỏ cấm
+
+        tbody
+          - customers_ban.find_each(batch_size: BATCH_SIZE) do |customer_ban|
+            tr
+              td
+                = customer_ban.mac
+              td
+                = customer_ban.full_name
+              td
+                = customer_ban.phone
+              td
+                = link_to 'Bỏ  Cấm', unban_homes_path(customer_ban.id), class: "btn btn-success btn-sm active", role: "button", method: "patch", data: {confirm: "Are you sure?"}

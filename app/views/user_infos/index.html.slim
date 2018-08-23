@@ -1,0 +1,23 @@
+.container
+  h2 Thông tin nhân viên
+  p Bảng thông tin nhân viên quản lý phần mềm Facebook Marketing
+  table.table
+    thead
+      tr
+        th Họ tên
+        th email
+        th Số tiền thu được
+        th Kích hoạt
+        th Chi tiết
+    tbody
+      - @users.find_each(batch_size: BATCH_SIZE) do |user|
+        tr
+          td
+            = get_full_name user.first_name, user.last_name
+          td
+            = user.email
+          td
+            = user.user_sells.sum(:price)
+          td
+          td
+            = link_to 'Chi tiết bán', user_sells_user_sells_path(user), class: "btn btn-success"

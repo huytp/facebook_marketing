@@ -1,0 +1,1 @@
+json.extract! @customer, :mac, :expired_time, :full_name, :email, :phone

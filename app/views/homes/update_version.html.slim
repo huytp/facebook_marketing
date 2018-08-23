@@ -1,0 +1,11 @@
+#fm-update-version
+  .container
+    h3
+      | Version hiện tại:
+      = @current_version
+    h2 Yêu cầu khách hàng update
+    = form_for update_version_homes_path, html: {class: "form-inline"}
+      .form-group
+        label for="version"  Version:
+        input#version.form-control name="version" placeholder=("Enter version") required="" type="version" /
+      button.btn.btn-default.fm-submit-version name="submit" type="submit"  Submit

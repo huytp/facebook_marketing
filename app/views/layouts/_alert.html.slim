@@ -1,0 +1,7 @@
+- flash.each do |key, value|
+  - key = "success" if key == "notice"
+  - key = "danger" if key == "error" || key == "alert"
+  div class="alert alert-#{key}" id="ld-alert"
+    button.close aria-label="Close" data-dismiss="alert" type="button"
+      span aria-hidden="true"  &times;
+    = value

@@ -1,0 +1,2 @@
+module ServiceTablesHelper
+end

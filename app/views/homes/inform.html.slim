@@ -1,0 +1,14 @@
+.col-sm-7#fm-inform
+  h4.green Thông báo
+  .widget-box.widget-color-blue
+    .widget-header.widget-header-small
+    .widget-body
+      = form_for inform_homes_path
+        .widget-main.no-padding
+          textarea.inform-textarea data-iconlibrary="fa" data-provide="markdown" name="content" rows="10"
+            = @content
+        .widget-toolbox.padding-4.clearfix
+          .btn-group.pull-right
+            button.btn.btn-sm.btn-purple name="submit" type="submit"
+              i.ace-icon.fa.fa-floppy-o.bigger-125
+              | Save

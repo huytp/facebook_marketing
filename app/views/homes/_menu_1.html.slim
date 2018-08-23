@@ -1,0 +1,34 @@
+#menu1.tab-pane.fade.in.active
+    h3 Thông tin khách hàng còn ngày sử dụng
+    .table-responsive
+      table.table
+        thead
+          tr
+            th Mã
+            th Họ tên
+            th Email
+            th SĐT
+            th Ngày kích hoạt
+            th Số ngày sử dụng còn lại
+            th Gia hạn
+            th Cấm người dùng
+        tbody
+          - customers_valid.find_each(batch_size: BATCH_SIZE) do |customer_valid|
+            tr.active
+              td
+                = customer_valid.mac
+              td
+                = customer_valid.full_name
+              td
+                = customer_valid.email
+              td
+                = customer_valid.phone
+              td
+                = customer_valid.created_at
+              td
+                = change_second_to_days(customer_valid.expired_time - Time.now)
+
+              td
+                = link_to 'Gia hạn', day_using_extends_path(customer_valid), class: "btn btn-success btn-sm active"
+              td
+                = link_to 'Cấm', ban_homes_path(customer_valid.id), class: "btn btn-success btn-sm active", role: "button", method: "patch", data: {confirm: "Are you sure?"}

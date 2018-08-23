@@ -1,0 +1,23 @@
+.detail-user-sell
+  .container
+    h2 Chi tiết các giao dịch  giữa nhân viên và khách hàng
+    .alert.alert-info
+      strong Nhân viên:
+      span.fm-full-name = get_full_name @user.first_name, @user.last_name
+    table.table.table-hover
+      thead
+        tr
+          th Mã khách hàng
+          th Thời gian
+          th Số tiền
+      tbody
+        - @detail_sells.find_each(batch_size: BATCH_SIZE) do |detail_sell|
+          tr
+            td
+              = detail_sell.id
+            td
+              = detail_sell.created_at
+
+            td
+              = detail_sell.price
+    = link_to 'Back', session[:my_previous_url], class: "btn btn-success"

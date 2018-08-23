@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  username: postgres
+  password:
+  host: localhost
+development:
+  <<: *default
+  database: facebook_marketing_development
+
+test:
+  <<: *default
+  database: facebook_marketing_test
+
+production:
+  <<: *default
+  database: facebook_marketing_prod

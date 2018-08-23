@@ -1,0 +1,48 @@
+.fm-extend {
+  .fm-btn-margin {
+    margin-left: 5px;
+  }
+  .fm-label-padding {
+    padding-right: 5px;
+  }
+  .btn-default {
+    background-color: white !important;
+    color: black !important;
+  }
+  .btn {
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+  }
+  .btn:hover {
+    border: 1px solid #5bc1cd !important;
+    background-color: white !important;
+  }
+
+  .bootstrap-select > .btn:focus {
+    background-color: #e6e6e6 !important;
+    outline: none !important;
+    border: none !important;
+  }
+
+  .btn-default:active, .open>.btn-default.dropdown-toggle {
+    background-color: #e6e6e6 !important;
+  }
+
+  .btn-group>.btn>.caret {
+    border-top-color: black;
+  }
+
+  .dropdown-menu {
+    margin: 0px;
+    padding: 0px;
+  }
+  .dropdown-menu>li {
+    a {
+      padding: 8px 12px;
+      margin-top: 0px;
+    }
+    a:focus {
+      outline: none;
+    }
+  }
+}
